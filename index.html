@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Aqua Re: – 순환이 만드는 새로운 물결</title>
+<style>
+:root{
+  --aqua:#3bbfd6;
+  --light:#ecf9fb;
+  --dark:#0f172a;
+  --muted:#6b7280;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;scroll-behavior:smooth;background:var(--light);color:var(--dark);}
+section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:60px 20px;text-align:center;}
+h1,h2,h3{font-weight:700;}
+h1{font-size:2.5rem;margin-bottom:1rem;color:var(--aqua);}
+h2{font-size:2rem;margin-bottom:1rem;}
+p{max-width:640px;line-height:1.6;margin-bottom:1rem;}
+button,input,textarea{font-family:inherit;}
+
+header{
+  position:fixed;top:0;left:0;right:0;
+  background:#fff8;
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid #e5e7eb;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 18px;z-index:100;
+}
+.logo{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--aqua);}
+.logo span{font-size:1.2rem;}
+nav a{margin:0 8px;text-decoration:none;color:var(--dark);font-weight:500;}
+nav a:hover{color:var(--aqua);}
+.btn{
+  background:var(--aqua);color:#fff;border:0;border-radius:6px;padding:10px 16px;cursor:pointer;font-weight:600;
+}
+.btn:hover{opacity:0.9;}
+
+/* 게시글 영역 */
+.feed{width:100%;max-width:640px;margin-top:20px;}
+.post{
+  background:#fff;padding:16px;margin-bottom:16px;border-radius:12px;
+  box-shadow:0 3px 8px rgba(0,0,0,0.05);text-align:left;
+}
+.post-header{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.avatar{width:36px;height:36px;border-radius:50%;background:var(--aqua);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;}
+.name{font-weight:600;}
+.actions{display:flex;gap:16px;margin-top:8px;font-size:0.9rem;color:var(--muted);}
+.actions button{background:none;border:0;color:inherit;cursor:pointer;}
+.actions button.active{color:var(--aqua);}
+.comment-box{margin-top:8px;}
+.comment-box input{width:100%;padding:8px;border:1px solid #e5e7eb;border-radius:8px;}
+.comment{margin-top:6px;padding:6px 10px;background:#f9fafb;border-radius:6px;font-size:0.9rem;}
+
+footer{padding:20px;text-align:center;color:var(--muted);font-size:0.9rem;}
+
+@media (max-width:600px){
+  h1{font-size:2rem;}
+  h2{font-size:1.4rem;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">💧<span>Aqua Re:</span></div>
+  <nav>
+    <a href="#intro">소개</a>
+    <a href="#mission">활동</a>
+    <a href="#campaign">캠페인</a>
+    <a href="#feed">게시글</a>
+    <a href="#contact">문의</a>
+  </nav>
+</header>
+
+<section id="intro">
+  <h1>Aqua Re:</h1>
+  <h3 style="color:var(--muted)">순환이 만드는 새로운 물결</h3>
+  <p>우리는 해양 플라스틱을 수거하여 예술적 가치로 재탄생시키는 순환 디자인 프로젝트를 운영합니다.<br>
+  바다에서 버려진 것들이 다시 빛날 수 있도록 – Aqua Re: 가 함께합니다.</p>
+</section>
+
+<section id="mission" style="background:#fff;">
+  <h2>핵심 활동</h2>
+  <p>🌊 해양 플라스틱 수거 및 분류 프로그램 운영<br>
+     🎨 수거 자재를 활용한 예술·디자인 워크숍 개최<br>
+     🤝 지속가능한 디자인 브랜드 및 학교 협력 네트워크 형성</p>
+</section>
+
+<section id="campaign">
+  <h2>캠페인 참여</h2>
+  <p>우리의 다음 프로젝트는 “플라스틱 웨이브” 입니다.<br>
+  버려진 페트병 100개를 모아 해변 조형물로 재탄생시키는 작업이에요.<br>
+  아래 버튼을 눌러 참여 신청 또는 홍보 게시글을 남겨보세요!</p>
+  <button class="btn" onclick="alert('참여 신청이 완료되었습니다! 감사합니다 💧')">참여하기</button>
+</section>
+
+<section id="feed" style="background:#fff;">
+  <h2>게시글 & 소통</h2>
+  <p>함께 하는 사람들의 생생한 이야기입니다. 좋아요 ❤️ 와 댓글로 소통해보세요.</p>
+
+  <div class="feed" id="feedList">
+    <div class="post">
+      <div class="post-header">
+        <div class="avatar">H</div><div class="name">하린 학생</div>
+      </div>
+      <div class="content">오늘 학교에서 플라스틱 수거 함 설치했어요! 생각보다 많이 모이네요 💧</div>
+      <div class="actions">
+        <button class="like-btn">♡ 좋아요 <span class="count">3</span></button>
+        <button class="comment-btn">💬 댓글</button>
+      </div>
+      <div class="comment-box" style="display:none;">
+        <input type="text" placeholder="댓글을 입력하세요…" />
+        <div class="comments"></div>
+      </div>
+    </div>
+    <div class="post">
+      <div class="post-header">
+        <div class="avatar">M</div><div class="name">민재 학생</div>
+      </div>
+      <div class="content">해변 청소 봉사 끝! 작은 플라스틱 조각들도 예술이 될 거예요 🎨</div>
+      <div class="actions">
+        <button class="like-btn">♡ 좋아요 <span class="count">7</span></button>
+        <button class="comment-btn">💬 댓글</button>
+      </div>
+      <div class="comment-box" style="display:none;">
+        <input type="text" placeholder="댓글을 입력하세요…" />
+        <div class="comments"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>후원 / 문의</h2>
+  <p>우리의 작은 물결에 함께하고 싶다면 언제든 연락주세요.<br>
+  💌 이메일: <a href="mailto:hello@aquare.org" style="color:var(--aqua);text-decoration:none;">hello@aquare.org</a></p>
+  <form onsubmit="event.preventDefault();alert('문의가 전송되었습니다. 감사합니다!')"
+    style="width:100%;max-width:420px;text-align:left;">
+    <label>이름</label><br>
+    <input type="text" required style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;margin:6px 0 12px"><br>
+    <label>메시지</label><br>
+    <textarea required rows="4" style="width:100%;padding:10px;border:1px solid #e5e7eb;border-radius:8px;margin:6px 0 12px"></textarea><br>
+    <button class="btn" type="submit" style="width:100%;">보내기</button>
+  </form>
+</section>
+
+<footer>© 2025 Aqua Re: Foundation. All rights reserved.</footer>
+
+<script>
+// 좋아요 & 댓글 기능
+document.querySelectorAll('.like-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const countEl=btn.querySelector('.count');
+    let count=parseInt(countEl.textContent);
+    if(btn.classList.contains('active')){
+      btn.classList.remove('active');
+      count--;
+    }else{
+      btn.classList.add('active');
+      count++;
+    }
+    countEl.textContent=count;
+  });
+});
+
+document.querySelectorAll('.comment-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const box=btn.closest('.post').querySelector('.comment-box');
+    box.style.display=box.style.display==='none'?'block':'none';
+    box.querySelector('input').focus();
+  });
+});
+
+document.querySelectorAll('.comment-box input').forEach(input=>{
+  input.addEventListener('keypress',e=>{
+    if(e.key==='Enter' && input.value.trim()){
+      const commentDiv=document.createElement('div');
+      commentDiv.className='comment';
+      commentDiv.textContent=input.value.trim();
+      input.closest('.comment-box').querySelector('.comments').appendChild(commentDiv);
+      input.value='';
+    }
+  });
+});
+</script>
+
+</body>
+</html>
